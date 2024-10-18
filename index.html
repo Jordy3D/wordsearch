@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+
+    <style>
+        #inputDisplayToggle {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 20px 0px 0px 0px;
+            border: 1px solid #000;
+            border-right: none;
+            border-bottom: none;
+
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="inputs">
+            <!-- Letters to look for -->
+            <div class="check-group">
+                <div class="input-group">
+                    <label for="letters" title="The letters that the word must contain">Letters to search for</label>
+                    <input type="text" id="letters" placeholder="Letters">
+                </div>
+                <div class="input-group-small">
+                    <label for="allToggle" title="If checked, the word must contain all the letters">All</label>
+                    <input type="checkbox" id="allToggle">
+                </div>
+            </div>
+            <!-- min and max word lengths -->
+            <div class="half-group">
+                <div class="input-group">
+                    <label for="minLength" title="The minimum length of the word">Min Word Length</label>
+                    <input type="number" id="minLength" placeholder="Min Length" value="3">
+                </div>
+                <div class="input-group">
+                    <label for="maxLength" title="The maximum length of the word">Max Word Length</label>
+                    <input type="number" id="maxLength" placeholder="Max Length" value="7">
+                </div>
+            </div>
+            <!-- letter pool -->
+            <div class="check-group">
+                <div class="input-group">
+                    <label for="lettersAvailable" title="The letters that the word must not contain">Letter Pool</label>
+                    <input type="text" id="lettersAvailable" placeholder="Letters">
+                </div>
+                <div class="input-group-small">
+                    <label for="excludeToggle" title="If checked, the word must not contain the letters">Exclude</label>
+                    <input type="checkbox" id="excludeToggle">
+                </div>
+            </div>
+
+            <!-- pattern, a max of 5 characters, only letters or _ -->
+            <div class="input-group">
+                <label for="pattern"
+                    title="The pattern that the word must match ( _ = any letter, CAPS = fixed pos )">Pattern</label>
+                <input type="text" id="pattern" placeholder="Pattern">
+            </div>
+
+            <!-- a select dropdown for Full, Small, and Wordle -->
+            <div class="input-group">
+                <label for="dictionary" title="The dictionary to search in">Dictionary</label>
+                <select name="dictionary" id="dictionary">
+                    <option value="full">Full</option>
+                    <option value="small">Small</option>
+                    <option value="wordle full">Wordle (Full)</option>
+                    <option value="wordle small">Wordle (Small)</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="inputDisplayToggle" class="hidden">
+            <!-- insert a pencil icon -->
+            <svg width="800px" height="800px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect width="16" height="16" id="icon-bound" fill="none" />
+                <path d="M1,11v4h4l7-7L8,4L1,11z M11,1L9,3l4,4l2-2L11,1z" />
+              </svg>
+        </div>
+
+        <!-- the found words will be displayed here -->
+        <ul class="output"></ul>
+    </main>
+</body>
+
+</html>
