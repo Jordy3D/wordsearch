@@ -38,7 +38,7 @@ const dictionary = {
 
 // Function to fetch the words from the selected dictionary
 const fetchWords = () => {
-    fetch(dictionary[dictionarySelect.value])
+    fetch('dada/' + dictionary[dictionarySelect.value])
         .then(response => response.text())
         .then(text => {
             // Split the text into an array of words
